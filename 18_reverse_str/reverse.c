@@ -1,0 +1,53 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+/*void reverse(char * str) {
+  //WRITE ME!
+  }*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+
+void reverse(char *str){
+  //find size of str
+  size_t length ,i;
+  char *begin = str;
+  char *end = str;
+  char temp;
+  
+  if(str == NULL){
+    printf("error");
+    //    return EXIT_FAILURE;
+  }
+  else{
+  length=strlen(str);
+  end =str+length-1;
+  
+  for( i=0 ; i<(length)/2; i++){
+    
+    temp = *end;
+    *end = *begin;
+    *begin= temp;
+    begin++;
+    end --;
+  }
+  }
+}
+int main(void) {
+  char str0[] = "";
+  char str1[] = "123";
+  char str2[] = "abcd";
+  char str3[] = "Captain's log, Stardate 42523.7";
+  char str4[] = "Hello, my name is Inigo Montoya.";
+  char str5[] = "You can be my wingman anyday!";
+  char str6[] = "Executor Selendis! Unleash the full power of your forces! There may be no tomorrow!";
+  char * array[] = {str0, str1, str2, str3, str4, str5, str6};
+  for (int i = 0; i < 7; i++) {
+    reverse(array[i]);
+    printf("%s\n", array[i]);
+  }
+  return EXIT_SUCCESS;
+}
